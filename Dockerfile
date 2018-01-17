@@ -10,6 +10,6 @@ RUN apt-get update \
   && apt-get install --no-install-recommends -qq wget texlive-latex-base git \
     texlive-pictures texlive-latex-extra pdf2svg gnuplot poppler-utils \
     gnuplot-nox ca-certificates \
-  && /test/install-julia.sh stable julia-stable
+  && /test/install-julia.sh 0.6 julia-0.6
 
 ENV NAME texlive-julia-docker

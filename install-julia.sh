@@ -6,7 +6,7 @@ use as
 
    install-julia.sh version dir
 
-to download and extract binaries in <dir> for <version>, which can be "stable" or "nightly".
+to download and extract binaries in <dir> for <version>, which can be "0.6" or "nightly".
 
 The binary will be at <dir>/bin/julia.
 END
@@ -21,7 +21,7 @@ case $1 in
         URL=https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz
         ;;
     *)
-        echo "Unknown Julia version '$1'. Use 'stable' or 'nightly'."
+        echo "Unknown Julia version '$1'. Use '0.6' or 'nightly'."
         exit 1
 esac
 

@@ -14,7 +14,7 @@ END
 fi
 
 case $1 in
-    stable)
+    0.6)
         URL=https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.2-linux-x86_64.tar.gz
         ;;
     nightly)

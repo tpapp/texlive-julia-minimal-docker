@@ -25,4 +25,9 @@ PKGNAME=$2
 [ "$JULIAVER" == "nightly" ] && /test/install-julia.sh $JULIAVER $JULIADIR
 
 cd /mnt && if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+
+# run tests
 $JULIADIR/bin/julia -e "Pkg.clone(\"/mnt/\", \"$PKGNAME\"); Pkg.build(\"$PKGNAME\"); Pkg.test(\"$PKGNAME\"; coverage=true)"
+
+# save coverage results back to host
+cp `$JULIADIR/bin/julia -e "print(Pkg.dir(\"$PKGNAME\", \"src\"))"`/*.cov /mnt

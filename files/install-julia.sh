@@ -1,19 +1,22 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
+if [ "$#" -ne 1 ]; then
     cat <<-END
 use as
 
-   install-julia.sh version dir
+   install-julia.sh version
 
-to download and extract binaries in <dir> for <version>, which can be "0.6" or "nightly".
+to download and extract binaries in /test/julia-<version>. For valid
+versions, see the source.
 
-The binary will be at <dir>/bin/julia.
+The binary will be at /test/julia-<version>/bin/julia.
 END
     exit 1
 fi
 
-case $1 in
+VERSION=$1
+
+case $VERSION in
     0.6)
         URL=https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.2-linux-x86_64.tar.gz
         ;;
@@ -25,7 +28,11 @@ case $1 in
         exit 1
 esac
 
-DEST=$2
-TARBALL=julia.tar.gz
-echo "downloading and extracting Julia binaries"
-mkdir -p $DEST && wget -O - $URL | tar -C $DEST -zxpf - --strip-components 1
+DEST=/test/julia-$1/
+
+if [ -d $DEST ]; then
+    echo "Julia $VERSION is already available, not downloading."
+else
+    echo "downloading and extracting Julia binaries"
+    mkdir -p $DEST && wget -O - $URL | tar -C $DEST -zxpf - --strip-components 1
+fi

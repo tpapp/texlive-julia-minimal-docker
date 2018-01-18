@@ -3,9 +3,9 @@ MAINTAINER Tamas K. Papp <tkpapp@gmail.com>
 
 WORKDIR /test
 
-ADD install-julia.sh /test/install-julia.sh
+ADD files/install-julia.sh /test/install-julia.sh
 ADD test-script.sh /test/test-script.sh
-ADD .ssh/ /root/.ssh/
+ADD files/.ssh/ /root/.ssh/
 
 RUN apt-get update \
   && apt-get install --no-install-recommends -qq texlive-latex-base git \

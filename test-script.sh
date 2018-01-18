@@ -1,35 +1,19 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
-    cat <<-END
-use as
+JULIAVER=$1                     # the first and only argument to the script is the version
+JULIABIN=/test/julia-$JULIAVER/bin/julia
+PKGNAME="PGFPlotsX"
 
-   test-script.sh julia_version pkgname
-
-where julia-version is accepted by install-julia.sh.
-
-The script
-
-1. Downloads and extracts the julia binary if necessary,
-2. clones the package from /mnt,
-3. builds it, emits coverage info in /mnt.
-END
-    exit 1
-fi
-
-JULIAVER=$1
-JULIADIR=/test/julia-$JULIAVER
-PKGNAME=$2
-
-## stable is in the image, but nightly needs to be installed
-[ "$JULIAVER" == "nightly" ] && /test/install-julia.sh $JULIAVER $JULIADIR
+## install the image (when necessary)
+/test/install-julia.sh $JULIAVER
 
 cd /mnt && if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 
 # run tests
-$JULIADIR/bin/julia -e "Pkg.clone(\"/mnt/\", \"$PKGNAME\"); Pkg.build(\"$PKGNAME\"); Pkg.test(\"$PKGNAME\"; coverage=true)"
+$JULIABIN -e "Pkg.clone(\"/mnt/\", \"$PKGNAME\"); Pkg.build(\"$PKGNAME\"); Pkg.test(\"$PKGNAME\"; coverage=true)"
 TEST_EXIT=$?                    # return with this
 
 # save coverage results back to host
-cp `$JULIADIR/bin/julia -e "print(Pkg.dir(\"$PKGNAME\", \"src\"))"`/*.cov /mnt/src/
+PKGDIR=`$JULIABIN -e "print(Pkg.dir(\"$PKGNAME\"))"`
+rsync -mav --include="*/" --include="*.cov" --exclude="*" $PKGDIR/ /mnt/
 exit $TEST_EXIT

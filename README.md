@@ -9,16 +9,16 @@ For testing Julia packages that rely on [TeXLive](https://tug.org/texlive/). It 
 Call `docker` as something like
 
 ```sh
-docker run -ti -a STDOUT -a STDIN -a STDERR -v .:/mnt texlive-julia-minimal /test/test-script.sh stable PGFPlotsX
+docker run -ti -a STDOUT -a STDIN -a STDERR -v .:/mnt texlive-julia-minimal /mnt/test-script.sh 0.6
 ```
 
 ie
 
 1. the source for the package is mounted at `/mnt` in the container (this is hardcoded into the scripts)
 
-2. `stable` is the version, the alternative is `nightly`,
+2. `0.6` is the version, the alternative is `nightly`,
 
-3. the last argument is the package name.
+3. `test-script.sh` comes from your repository.
 
 ## What's in the image
 
@@ -26,8 +26,12 @@ ie
 
 2. script to install Julia from official binaries
 
-3. stable version of Julia installed in `/test/julia-stable/`.
+3. stable version of Julia installed in `/test/julia-0.6/`.
 
-## Local testing
+## Local scripts
 
-[`build-locally.sh`](build-locally.sh) builds the Docker image locally, while [`run-locally.sh`](run-locally.sh) can be used to make test runs. The Docker suite needs to be installed for both.
+Scripts for building, generation and deployment are in [`local/`](local/). See their documentation there.
+
+## Files for populating the repo
+
+See [their documentation](files/README.md).

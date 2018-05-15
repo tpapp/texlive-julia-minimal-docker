@@ -4,7 +4,8 @@ WORKDIR /test
 
 ADD files/install-julia.sh /test/install-julia.sh
 
-RUN apt-get install --no-install-recommends -qq wget ca-certificates sudo unzip rsync \
+RUN apt-get install --no-install-recommends -qq \
+  wget ca-certificates sudo unzip rsync build-essential \
   && /test/install-julia.sh 0.6
 
 ENV NAME scip-julia-docker

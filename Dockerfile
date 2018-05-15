@@ -1,4 +1,4 @@
-FROM leethargo:debian4scip
+FROM leethargo/debian4scip
 
 WORKDIR /test
 

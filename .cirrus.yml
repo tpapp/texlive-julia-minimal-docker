@@ -7,7 +7,7 @@ environment:
   IMAGE: texlive-julia-minimal
 
 test_task:
-  test_script: install_julia.sh nightly
+  test_script: /test/install_julia.sh nightly
 
 docker_builder:
   depends_on:

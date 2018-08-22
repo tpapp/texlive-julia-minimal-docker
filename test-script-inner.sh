@@ -7,4 +7,4 @@ set -e
 /test/install-julia.sh nightly     # installation should work
 /test/julia-nightly/bin/julia -e '1+1' # installed nightly should work
 pdflatex -output-directory /mnt -halt-on-error /mnt/test-plot.tex # latex environment should be available ...
-test -e /mnt/test-plot.pdf || exit 1  # ... and produce a PDF
+file -bEi /mnt/test-plot.pdf | grep "application/pdf"

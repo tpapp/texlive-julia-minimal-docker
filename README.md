@@ -2,6 +2,8 @@
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
+*CI badge goes here*
+
 For testing Julia packages that rely on [TeXLive](https://tug.org/texlive/). It was written primarily for [PGFPlotsX.jl](https://github.com/KristofferC/PGFPlotsX.jl), may be useful for other Julia projects that have extensive binary dependencies (with modifications, of course, you need to edit the [`Dockerfile`](Dockerfile)).
 
 ## Usage

@@ -1,0 +1,9 @@
+test_task:
+  test_script: install_julia.sh nightly
+
+publish_task:
+  depends_on:
+    - test
+  only_if: $BRANCH == "master"
+
+  publish_script: local/docker-push.sh

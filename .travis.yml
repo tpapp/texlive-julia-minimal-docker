@@ -1,9 +1,13 @@
+language: julia
+
 env:
   - IMAGE=texlive-julia-minimal
 
 os: linux
 
 dist: trusty
+
+sudo: required
 
 services:
   - docker

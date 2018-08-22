@@ -1,0 +1,19 @@
+env:
+  - IMAGE=texlive-julia-minimal
+
+os: linux
+
+dist: trusty
+
+services:
+  - docker
+
+notifications:
+  email: false
+
+script:
+  - build-script.sh
+  - test-script.sh
+
+after_success:
+  - push-script.sh

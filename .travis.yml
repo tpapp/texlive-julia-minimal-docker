@@ -16,6 +16,8 @@ notifications:
   email: false
 
 script:
+  - pwd
+  - ls
   - build-script.sh
   - test-script.sh
 

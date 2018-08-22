@@ -1,7 +1,7 @@
 # minimal docker setup for texlive and Julia
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
-[![Build Status](https://api.cirrus-ci.com/github/tpapp/texlive-julia-minimal-docker.svg)](https://cirrus-ci.com/github/tpapp/texlive-julia-minimal-docker)
+[![Build Status](https://travis-ci.org/tpapp/texlive-julia-minimal-docker.svg?branch=master)](https://travis-ci.org/tpapp/texlive-julia-minimal-docker)
 
 For testing Julia packages that rely on [TeXLive](https://tug.org/texlive/). It was written primarily for [PGFPlotsX.jl](https://github.com/KristofferC/PGFPlotsX.jl), may be useful for other Julia projects that have extensive binary dependencies (with modifications, of course, you need to edit the [`Dockerfile`](Dockerfile)).
 

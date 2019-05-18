@@ -21,10 +21,10 @@ case $VERSION in
         URL=https://julialang-s3.julialang.org/bin/linux/x64/0.7/julia-0.7.0-linux-x86_64.tar.gz
         ;;
     1.0)
-        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.3-linux-x86_64.tar.gz
+        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.4-linux-x86_64.tar.gz
         ;;
     1.1)
-        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.1/julia-1.1.0-linux-x86_64.tar.gz
+        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.1/julia-1.1.1-linux-x86_64.tar.gz
         ;;
     nightly)
         URL=https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz
@@ -39,6 +39,6 @@ DEST=/test/julia-$1/
 if [ -d $DEST ]; then
     echo "Julia $VERSION is already available, not downloading."
 else
-    echo "downloading and extracting Julia binaries"
+    echo "downloading and extracting Julia binaries for $VERSION"
     mkdir -p $DEST && wget -O - $URL | tar -C $DEST -zxpf - --strip-components 1
 fi

@@ -39,6 +39,6 @@ DEST=/test/julia-$1/
 if [ -d $DEST ]; then
     echo "Julia $VERSION is already available, not downloading."
 else
-    echo "downloading and extracting Julia binaries"
+    echo "downloading and extracting Julia binaries for $VERSION"
     mkdir -p $DEST && wget -O - $URL | tar -C $DEST -zxpf - --strip-components 1
 fi

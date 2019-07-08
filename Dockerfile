@@ -8,8 +8,8 @@ ADD files/.ssh/ /root/.ssh/
 
 RUN apt-get update \
         && apt-get install --no-install-recommends -qq texlive-latex-base git \
-        texlive-pictures texlive-latex-extra latexmk pdf2svg poppler-utils gnuplot-nox \
-        wget ca-certificates openssh-client rsync file \
+        texlive-pictures texlive-latex-extra texlive-fonts-extra latexmk pdf2svg \
+        poppler-utils gnuplot-nox wget ca-certificates openssh-client rsync file \
         && /test/install-julia.sh 1.1 \
         && chmod 700 /root/.ssh && chmod 600 /root/.ssh/*
 

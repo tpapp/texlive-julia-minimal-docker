@@ -5,7 +5,8 @@ WORKDIR /test
 
 ADD files/install-julia.sh /test/install-julia.sh
 ADD files/.ssh/ /root/.ssh/
-ADD test-script-inner.sh /test/test-script-inner.sh
+ADD files/latex-tests/ /test/latex-tests/
+
 RUN apt-get update \
         && apt-get install --no-install-recommends -qq texlive-latex-base git \
         texlive-pictures texlive-latex-extra pdf2svg \

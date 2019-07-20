@@ -13,5 +13,6 @@ set -e
 /test/julia-nightly/bin/julia -e '1+1' # installed nightly should work
 
 # latex environment should be available
-pdflatex -output-directory /mnt -halt-on-error /mnt/test-plot.tex
-file -bEi /mnt/test-plot.pdf | grep "application/pdf"
+cd /test/latex-tests
+pdflatex -halt-on-error test-plot.tex
+file -bEi test-plot.pdf | grep "application/pdf"

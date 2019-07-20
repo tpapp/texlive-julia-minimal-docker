@@ -18,6 +18,3 @@ notifications:
 script:
   - ./build-script.sh
   - ./test-script.sh
-
-after_success:
-  - ./push-script.sh

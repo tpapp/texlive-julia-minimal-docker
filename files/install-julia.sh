@@ -26,6 +26,12 @@ case $VERSION in
     1.1)
         URL=https://julialang-s3.julialang.org/bin/linux/x64/1.1/julia-1.1.1-linux-x86_64.tar.gz
         ;;
+    1.2)
+        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.2/julia-1.2.0-rc2-linux-x86_64.tar.gz
+        ;;
+    1.3)
+        URL=https://julialang-s3.julialang.org/bin/linux/x64/1.3/julia-1.3.0-alpha-linux-x86_64.tar.gz
+        ;;
     nightly)
         URL=https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz
         ;;

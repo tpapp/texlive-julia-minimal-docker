@@ -16,8 +16,8 @@ notifications:
   email: false
 
 script:
-  - echo DOCKER_USER
-  - echo IMAGE
+  - echo $DOCKER_USER
+  - echo $IMAGE
   - DOCKER_USER=${DOCKER_USER:-tkpapp}
   - IMAGE=${IMAGE:-texlive-julia-minimal-docker}
   - ./build-script.sh

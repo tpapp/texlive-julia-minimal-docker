@@ -18,7 +18,5 @@ notifications:
   email: false
 
 script:
-  -  echo $DOCKER_USER
-  -  echo $IMAGE
   - ./build-script.sh
   - ./test-script.sh

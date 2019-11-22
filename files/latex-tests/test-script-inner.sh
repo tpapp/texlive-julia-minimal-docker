@@ -9,6 +9,12 @@ set -e
 /test/install-julia.sh 1.1         # installation should work
 /test/julia-1.1/bin/julia -e '1+1' # should be installed
 
+/test/install-julia.sh 1.2         # installation should work
+/test/julia-1.1/bin/julia -e '1+1' # should be installed
+
+/test/install-julia.sh 1.3         # installation should work
+/test/julia-1.1/bin/julia -e '1+1' # should be installed
+
 /test/install-julia.sh nightly         # installation should work
 /test/julia-nightly/bin/julia -e '1+1' # installed nightly should work
 

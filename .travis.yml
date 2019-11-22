@@ -16,5 +16,7 @@ notifications:
   email: false
 
 script:
+  - DOCKER_USER=${DOCKER_USER:-tkapp}
+  - IMAGE=${IMAGE:-texlive-julia-minimal-docker}
   - ./build-script.sh
   - ./test-script.sh

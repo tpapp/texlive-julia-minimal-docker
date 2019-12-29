@@ -1,4 +1,4 @@
-FROM ubuntu:19.04
+FROM ubuntu:19.10
 MAINTAINER Tamas K. Papp <tkpapp@gmail.com>
 
 WORKDIR /test

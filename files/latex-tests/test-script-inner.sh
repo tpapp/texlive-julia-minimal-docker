@@ -20,5 +20,11 @@ set -e
 
 # latex environment should be available
 cd /test/latex-tests
+
 pdflatex -halt-on-error test-plot.tex
 file -bEi test-plot.pdf | grep "application/pdf"
+rm test-plot.tex
+
+lualatex --halt-on-error
+file -bEi test-plot.pdf | grep "application/pdf"
+rm test-plot.tex

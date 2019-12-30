@@ -28,7 +28,7 @@ echo "########################################"
 pdflatex -halt-on-error test-plot.tex
 file -bEi test-plot.pdf | grep "application/pdf"
 cat test-plot.log
-rm test-plot.log test-plot.tex
+rm test-plot.log test-plot.pdf
 
 echo "########################################"
 echo "#### testing lualatex"

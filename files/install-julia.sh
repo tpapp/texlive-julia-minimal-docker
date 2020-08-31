@@ -19,6 +19,10 @@ END
     exit 1
 fi
 
+# TODO: This needs to be manually updated until something like
+# https://github.com/JuliaLang/julia/issues/33817 has been resolved
+LATEST_V1="1.5"
+
 VERSION=$1
 
 if [[ $VERSION = nightly ]]; then
@@ -37,7 +41,7 @@ elif [[ $VERSION =~ v?([0-9]+).([0-9]+) ]]; then
 elif [[ $VERSION =~ v?([0-9]+) ]]; then
     MAJOR=${BASH_REMATCH[1]}
     if (( MAJOR == 1 )); then
-        MINOR = 5              # NOTE: update this manually for each release
+        MINOR=$LATEST_V1
     else
         echo "Don't know the latest minor version for Julia v$MAJOR."
     fi

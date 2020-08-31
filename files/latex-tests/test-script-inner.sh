@@ -18,6 +18,9 @@ set -e
 /test/install-julia.sh nightly         # installation should work
 /test/julia-nightly/bin/julia -e '1+1' # installed nightly should work
 
+/test/install-julia.sh 1         # installation should work
+/test/julia-1/bin/julia -e '1+1' # installed nightly should work
+
 # latex environment should be available
 cd /test/latex-tests
 

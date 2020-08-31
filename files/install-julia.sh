@@ -9,8 +9,8 @@ use as
 to download and extract binaries in /test/julia-<version>.
 <version> can be
 
-    1) a complete version number of the form v#.#.# (or #.#.#);
-    2) a version number of the form v#.# (or #.#);
+    1) a complete version number of the form v#.#.# (#.#.#);
+    2) an incomplete version number of the form v#.# (#.#) or v# (#);
     3) nightly
 
 The binary will be at /test/julia-<version>/bin/julia.
@@ -19,6 +19,13 @@ END
 fi
 
 VERSION=$1
+
+# TODO: This needs to be manually updated until something like
+# https://github.com/JuliaLang/julia/issues/33817 has been resolved
+LATEST_V1="1.5"
+if [[ $VERSION =~ v?1 ]]; then
+    VERSION=$LATEST_V1
+fi
 
 if [[ $VERSION = nightly ]]; then
     URL=https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz

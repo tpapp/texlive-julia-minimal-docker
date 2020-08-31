@@ -11,7 +11,7 @@ RUN apt-get update \
         && apt-get install --no-install-recommends -qq texlive-latex-base git \
         texlive-luatex texlive-pictures texlive-latex-extra pdf2svg \
         poppler-utils gnuplot-nox wget ca-certificates openssh-client rsync file \
-        && /test/install-julia.sh 1.5 \
+        && /test/install-julia.sh v1 \
         && chmod 700 /root/.ssh && chmod 600 /root/.ssh/*
 
 ENV NAME texlive-julia-docker

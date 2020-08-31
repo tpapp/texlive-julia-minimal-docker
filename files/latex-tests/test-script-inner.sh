@@ -3,6 +3,9 @@
 # This script is run *inside* the Docker image, to test the relevant functionionality.
 set -e
 
+/test/install-julia.sh 1         # installation should work
+/test/julia-1/bin/julia -e '1+1' # installed nightly should work
+
 /test/install-julia.sh 1.0         # installation should work
 /test/julia-1.0/bin/julia -e '1+1' # should be installed
 
@@ -13,7 +16,13 @@ set -e
 /test/julia-1.1/bin/julia -e '1+1' # should be installed
 
 /test/install-julia.sh 1.3         # installation should work
-/test/julia-1.1/bin/julia -e '1+1' # should be installed
+/test/julia-1.3/bin/julia -e '1+1' # should be installed
+
+/test/install-julia.sh 1.4         # installation should work
+/test/julia-1.4/bin/julia -e '1+1' # should be installed
+
+/test/install-julia.sh 1.5         # installation should work
+/test/julia-1.5/bin/julia -e '1+1' # should be installed
 
 /test/install-julia.sh nightly         # installation should work
 /test/julia-nightly/bin/julia -e '1+1' # installed nightly should work

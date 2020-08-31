@@ -42,7 +42,7 @@ elif [[ $VERSION =~ v?([0-9]+) ]]; then
         echo "Don't know the latest minor version for Julia v$MAJOR."
     fi
     TARBALL=$MAJOR.$MINOR/julia-$MAJOR.$MINOR-latest-linux-x86_64.tar.gz
-    URL=https://julialang-s3.julialang.or1g/bin/linux/x64/$TARBALL
+    URL=https://julialang-s3.julialang.org/bin/linux/x64/$TARBALL
 else
     echo "Could not parse input as a valid version."
     exit 1

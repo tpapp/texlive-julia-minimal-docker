@@ -7,7 +7,9 @@ ADD files/install-julia.sh /test/install-julia.sh
 ADD files/.ssh/ /root/.ssh/
 ADD files/latex-tests/ /test/latex-tests/
 
-RUN echo "UTC" > /etc/timezone && apt-get update \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
         && apt-get install --no-install-recommends -qq texlive-latex-base git \
         texlive-luatex texlive-pictures texlive-latex-extra pdf2svg \
         poppler-utils gnuplot-nox wget ca-certificates openssh-client rsync file \
